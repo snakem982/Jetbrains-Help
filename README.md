@@ -292,7 +292,7 @@ public static String generateLicense(String licensesName, String assigneeName, S
                         .setCode(productCode)
                         .setFallbackDate(expiryDate)
                         .setPaidUpTo(expiryDate))
-                .toList();
+                .collect(Collectors.toList());
         LicensePart licensePart = new LicensePart()
                 .setLicenseId(licenseId)
                 .setLicenseeName(licensesName)
@@ -426,10 +426,10 @@ document.getElementById('search').oninput = function (e) {
         if (CharSequenceUtil.isNotBlank(search)) {
             productCacheList = productCacheList.stream()
                     .filter(productCache -> CharSequenceUtil.containsIgnoreCase(productCache.getName(), search))
-                    .toList();
+                    .collect(Collectors.toList());
             pluginCacheList = pluginCacheList.stream()
                     .filter(pluginCache -> CharSequenceUtil.containsIgnoreCase(pluginCache.getName(), search))
-                    .toList();
+                    .collect(Collectors.toList());
         }
         model.addAttribute("products", productCacheList);
         model.addAttribute("plugins", pluginCacheList);
