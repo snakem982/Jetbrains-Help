@@ -33,6 +33,12 @@ public class IndexController {
 
     private final JetbrainsHelpProperties jetbrainsHelpProperties;
 
+    @GetMapping
+    public String hello() {
+        return "hello";
+    }
+
+
     @GetMapping("wlj")
     public String index(Model model) {
         List<ProductsContextHolder.ProductCache> productCacheList = ProductsContextHolder.productCacheList();
